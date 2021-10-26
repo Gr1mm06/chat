@@ -21,9 +21,7 @@
                 <div class="row animated fadeIn">
                     <div class="col-12">
                         <div class="card m-b-0">
-                            <!-- .chat-row -->
-                            <div class="chat-main-box">
-                                <!-- .chat-left-panel -->
+                            <div id="app" class="chat-main-box">
                                 <div class="chat-left-aside">
                                     <div class="open-panel"><i class="ti-angle-right"></i></div>
                                     <div class="chat-left-inner">
@@ -31,14 +29,16 @@
                                             <input class="form-control p-20" type="text" placeholder="Buscar Contacto">
                                         </div>
                                         <ul class="chatonline style-none" id="divUsuarios">
-                                            
+                                            <li  v-for="item in personas">
+                                                <a data-id="{{ personas.id }}" ><img src="assets/images/users/1.jpg" alt="user-img" class="img-circle"> <span>{{ personas.nombre }}<small class="text-success">online</small></span></a>
+                                            </li> 
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="chat-right-aside">
                                     <div class="chat-main-header">
                                         <div class="p-20 b-b">
-                                            <h3 class="box-title">Sala de chat </h3>
+                                            <h3 class="box-title">Sala de chat <small>Video Juegos</small></h3>
                                         </div>
                                     </div>
 
@@ -58,7 +58,6 @@
                                                 </div>
                                             </div>
                                         </form>
-                                        
                                     </div>
                                 </div>
                             </div>
@@ -71,10 +70,10 @@
             </footer>
         </div>
     </div>
-    <script src="js/libs/jquery.min.js"></script>
+   
     <script src="socket.io/socket.io.js"></script>
-
-    <script src="js/chat-rend.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="js/renderizar.js"></script>
     <script src="js/socket-chat.js"></script>
 
 </body>

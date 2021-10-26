@@ -9,7 +9,6 @@ var txtMensaje = $('#txtMensaje');
 var divChatbox = $('#divChatbox');
 
 function renderizarUsuarios(personas){
-    console.log(personas);
     var html = '';
     html += '<li>';
     html += '<a href="javascript:void(0)" class="active">Chat de <span> '+params.get('sala')+' </span></a>';
@@ -60,16 +59,12 @@ function renderizarMensajes(mensaje, personal){
 
 function scrollBottom() {
 
-    // selectors
     var newMessage = divChatbox.children('li:last-child');
-
-    // heights
     var clientHeight = divChatbox.prop('clientHeight');
     var scrollTop = divChatbox.prop('scrollTop');
     var scrollHeight = divChatbox.prop('scrollHeight');
     var newMessageHeight = newMessage.innerHeight();
     var lastMessageHeight = newMessage.prev().innerHeight() || 0;
-
     if (clientHeight + scrollTop + newMessageHeight + lastMessageHeight >= scrollHeight) {
         divChatbox.scrollTop(scrollHeight);
     }
@@ -87,6 +82,7 @@ formEnviar.on('submit',function(e){
     if(txtMensaje.val().trim().length == 0){
         return 
     }
+    
     socket.emit('crearMensaje', {
         nombre: nombre,
         mensaje: txtMensaje.val()

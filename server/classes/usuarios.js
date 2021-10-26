@@ -1,3 +1,4 @@
+const model = require('../models/historial');
 class Usuarios{
     constructor(){
         this.personas = [];
@@ -43,3 +44,4 @@ class Usuarios{
 module.exports = {
     Usuarios
 }
+
